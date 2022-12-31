@@ -1,0 +1,9 @@
+[submodule "packages/socket/@jumpn/utils-array"]
+	path = packages/socket/@jumpn/utils-array
+	url = git@github.com:matzko/utils-array.git
+[submodule "packages/socket/@jumpn/utils-composite"]
+	path = packages/socket/@jumpn/utils-composite
+	url = git@github.com:matzko/utils-composite.git
+[submodule "packages/socket/@jumpn/utils-graphql"]
+	path = packages/socket/@jumpn/utils-graphql
+	url = git@github.com:matzko/utils-graphql.git
