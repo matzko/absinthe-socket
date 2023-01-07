@@ -1,4 +1,4 @@
-import { Channel, Socket as PhoenixSocket } from 'phoenix'
+import { Channel, Socket as PhoenixSocket } from './phoenix.d'
 
 import type { Notifier, Observer } from './notifier/types'
 
@@ -18,17 +18,19 @@ type PushHandler<Response> = {
   onTimeout: () => any
 }
 
+type NotifierSuccessHandler = (
+  absintheSocket: AbsintheSocket,
+  notifier: Notifier<any, any>,
+  response: any
+) => any
+
 type NotifierPushHandler<Response> = {
   onError: (
     absintheSocket: AbsintheSocket,
     notifier: Notifier<any, any>,
     errorMessage: string
   ) => any
-  onSucceed: (
-    absintheSocket: AbsintheSocket,
-    notifier: Notifier<any, any>,
-    response: Response
-  ) => any
+  onSucceed: NotifierSuccessHandler
   onTimeout: (
     absintheSocket: AbsintheSocket,
     notifier: Notifier<any, any>
@@ -38,6 +40,7 @@ type NotifierPushHandler<Response> = {
 export type {
   AbsintheSocket,
   NotifierPushHandler,
+  NotifierSuccessHandler,
   Observer,
   PushHandler,
   Result,

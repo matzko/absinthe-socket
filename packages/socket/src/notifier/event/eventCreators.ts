@@ -4,7 +4,6 @@ import type {
   AbortEvent,
   CancelEvent,
   ErrorEvent,
-  Notifier,
   ResultEvent,
   StartEvent
 } from '../types'

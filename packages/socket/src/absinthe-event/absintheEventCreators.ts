@@ -1,19 +1,21 @@
-// @flow
-
 import absintheEventNames from './absintheEventNames'
 
-import type { AbsintheDocEvent, AbsintheUnsubscribeEvent } from './types'
+import type {
+  AbsintheDocEvent,
+  AbsintheEvent,
+  AbsintheUnsubscribeEvent
+} from './types'
 
 const createAbsintheUnsubscribeEvent = (
-  payload: $ElementType<AbsintheUnsubscribeEvent, 'payload'>
+  payload: AbsintheEvent
 ): AbsintheUnsubscribeEvent => ({
   payload,
   name: absintheEventNames.unsubscribe
 })
 
 const createAbsintheDocEvent = <Variables>(
-  payload: $ElementType<AbsintheDocEvent<Variables>, 'payload'>
-): AbsintheDocEvent<Variables> => ({
+  payload: AbsintheEvent
+): AbsintheDocEvent => ({
   payload,
   name: absintheEventNames.doc
 })

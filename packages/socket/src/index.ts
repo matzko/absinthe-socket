@@ -1,10 +1,8 @@
-// @flow
-
 export type {
   GqlOperationType,
   GqlRequest,
   GqlResponse
-} from '../@jumpn/utils-graphql/src/compat/cjs/types'
+} from '../@jumpn/utils-graphql/src/types'
 
 export { default as cancel } from './cancel'
 export { default as create } from './create'

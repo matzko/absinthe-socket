@@ -1,13 +1,16 @@
 import getOperationType from '../../@jumpn/utils-graphql/src/getOperationType'
 
-import type { GqlRequest } from '../../@jumpn/utils-graphql/src/compat/cjs/types'
+import type { GqlRequest } from '../../@jumpn/utils-graphql/src/types'
 
 import requestStatuses from './requestStatuses'
 
 import type { Notifier } from './types'
 import { Variables } from '../types'
 
-const createUsing = (request, operationType) => ({
+const createUsing = (
+  request: GqlRequest<Variables>,
+  operationType: string
+) => ({
   operationType,
   request,
   activeObservers: [],

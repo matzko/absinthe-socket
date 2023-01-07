@@ -1,4 +1,4 @@
-import { Socket as PhoenixSocket } from 'phoenix'
+import { Socket as PhoenixSocket } from './phoenix.d'
 
 import abortNotifier from './abortNotifier'
 import joinChannel from './joinChannel'

@@ -31,7 +31,7 @@ function pushAbsintheEvent(
   request: GqlRequest<Variables>,
   notifierPushHandler: NotifierPushHandler<Response>,
   absintheEvent: AbsintheEvent
-) {
+): AbsintheSocket {
   handlePush(
     absintheSocket.channel.push(absintheEvent.name, absintheEvent.payload),
     getPushHandler(absintheSocket, request, notifierPushHandler)

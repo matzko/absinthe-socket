@@ -8,7 +8,11 @@ import requestStatuses from './notifier/requestStatuses'
 import { createAbsintheDocEvent } from './absinthe-event/absintheEventCreators'
 import { createErrorEvent } from './notifier/event/eventCreators'
 
-import type { AbsintheSocket, NotifierPushHandler } from './types'
+import type {
+  AbsintheSocket,
+  NotifierPushHandler,
+  NotifierSuccessHandler
+} from './types'
 import type { Notifier } from './notifier/types'
 
 const pushAbsintheDocEvent = (
@@ -42,11 +46,17 @@ const onTimeout = (absintheSocket, notifier) =>
     createErrorEvent(createRequestError('timeout'))
   )
 
-const onError = (
+const onError = function (
   absintheSocket: AbsintheSocket,
   notifier: Notifier<any, any>,
   errorMessage: string
-) => abortNotifier(absintheSocket, notifier, createRequestError(errorMessage))
+): AbsintheSocket {
+  return abortNotifier(
+    absintheSocket,
+    notifier,
+    createRequestError(errorMessage)
+  )
+}
 
 const getNotifierPushHandler = (onSucceed) => ({
   onError,
@@ -57,7 +67,7 @@ const getNotifierPushHandler = (onSucceed) => ({
 function pushRequestUsing(
   absintheSocket: AbsintheSocket,
   notifier: Notifier<any, any>,
-  onSucceed: NotifierPushHandler<any>
+  onSucceed: NotifierSuccessHandler
 ) {
   pushAbsintheDocEvent(
     absintheSocket,

@@ -1,11 +1,9 @@
-// @flow
-
 const absintheEventNames = {
   doc: 'doc',
   unsubscribe: 'unsubscribe'
 }
 
-type AbsintheEventName = $Values<typeof absintheEventNames>
+type AbsintheEventName = any
 
 export default absintheEventNames
 

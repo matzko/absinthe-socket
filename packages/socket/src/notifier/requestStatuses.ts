@@ -6,7 +6,7 @@ const requestStatuses = {
   sending: 'sending'
 }
 
-type RequestStatus = $Values<typeof requestStatuses>
+type RequestStatus = string
 
 export default requestStatuses
 
