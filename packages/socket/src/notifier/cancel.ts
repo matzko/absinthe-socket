@@ -1,6 +1,4 @@
-// @flow
-
-import type {Notifier} from "./types";
+import type { Notifier } from './types'
 
 const cancel = <Result, Variables>({
   activeObservers,
@@ -11,6 +9,6 @@ const cancel = <Result, Variables>({
   isActive: false,
   activeObservers: [],
   canceledObservers: [...activeObservers, ...canceledObservers]
-});
+})
 
-export default cancel;
+export default cancel
